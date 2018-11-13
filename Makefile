@@ -1,13 +1,13 @@
 # Write this Makefile
-myas: main.c check.c trans.c
-	gcc -o myas main.o check.o trans.o -lm
-main.c: main.c
+myas: main.o check.o trans.o
+	gcc -o myas main.o check.o trans.o 
+main.o: main.c
 	gcc -c main.c
-check.c: check.c
+check.o: check.c
 	gcc -c check.c
-trans.c: trans.c
+trans.o: trans.c
 	gcc -c trans.c
 
 clean:
-	rm-f main.o trans.o check.o myas
+	rm-rf main.o trans.o check.o myas
 

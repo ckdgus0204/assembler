@@ -55,7 +55,7 @@ int instr_trans(char *op, char *args, char* mcode)// check syntax
 		}
 	}
 
-	else if (ptr[0] == '$') {	//immediate to something 
+	else if (ptr[0] == '$') {	//immediate to something
 		if (strcmp(ptr2, "%eax") == 0){
 			strcpy(mcode, "b8");
 			return 1;
