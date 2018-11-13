@@ -3,9 +3,12 @@
 
 int is_valid(char *op, char *args)	//valid or not
 {
-	char* ptr = strtok(args, ",  ");
+	char args_[256]="";
+	strcpy(args_,args);
+	char* ptr = strtok(args_, ",  ");
+	int a=strlen(ptr);
 	char* ptr2;
-	ptr2 = strtok(NULL, "");      // cut by token
+	ptr2 = strtok(args_+a+1, "\0");      // cut by token
 
 	if (strcmp(op, "mov") == 0) {//op==mov?
 		if (((ptr[0] == '0') && (ptr[1] == 'x')) || (ptr[0] == '(') || ((ptr[0] == '-') && (ptr[1] == '0') && (ptr[2] == 'x'))) {//mem->

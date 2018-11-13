@@ -28,7 +28,7 @@ int main(int argc, char* argv[])
 		if(!instr_trans(op, args, mcode)){
 			strcpy(mcode,"error");
 			printf("Error: %s %s cannot be translated\n", op, args);
-			
+			continue;
 		}
 		fprintf(ofp, "%s\n", mcode);
 	}

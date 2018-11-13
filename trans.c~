@@ -7,11 +7,13 @@ int instr_trans(char *op, char *args, char* mcode)// check syntax
 		return 0;
 	}
 	strcpy(mcode, "AB CD EF");
-
-	char* ptr = strtok(args, ",");	//,를 기준으로 토큰나누기/From
+	
+	char* args_;
+	strcpy(args_,args);
+	char* ptr = strtok(args_, ",");	//,를 기준으로 토큰나누기/From 
 	int a=strlen(ptr);	
 	char* ptr2;
-	ptr2 = strtok(args+a+1, "\0");		// 다음 문자열을 잘라서 포인터를 반환/To
+	ptr2 = strtok(args_+a+1, "\0");		// 다음 문자열을 잘라서 포인터를 반환/To
 
 	if (strcmp(ptr, "%eax") == 0 || strcmp(ptr, "%ecx") == 0 || strcmp(ptr, "%edx") == 0 || strcmp(ptr, "%ebx") == 0 || strcmp(ptr, "%esp") == 0 || strcmp(ptr, "%ebp") == 0 || strcmp(ptr, "%esi") == 0 || strcmp(ptr, "%edi") == 0) {	//register to something
 		if (strcmp(ptr, "%eax") == 0) {	//reg(%eax)->
